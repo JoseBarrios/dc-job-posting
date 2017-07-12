@@ -36,13 +36,19 @@ class JobPosting extends Intangible {
   set datePosted(value){ this.computed.datePosted = value; }
 
   get educationRequirements(){ return this.computed.educationRequirements; }
-  set educationRequirements(value){ this.computed.educationRequirements = value; }
+  set educationRequirements(value){
+    if(Intangible.isArray(value)){ this.computed.educationRequirements = value; }
+    else if(Intangible.isString(value)){ this.computed.educationRequirements = [value]; }
+  }
 
   get employmentType(){ return this.computed.employmentType; }
   set employmentType(value){ this.computed.employmentType = value; }
 
   get experienceRequirements(){ return this.computed.experienceRequirements; }
-  set experienceRequirements(value){ this.computed.experienceRequirements = value; }
+  set experienceRequirements(value){
+    if(Intangible.isArray(value)){ this.computed.experienceRequirements = value; }
+    else if(Intangible.isString(value)) { this.computed.experienceRequirements = [value]; }
+  }
 
   get hiringOrganization(){ return this.computed.hiringOrganization; }
   set hiringOrganization(value){ this.computed.hiringOrganization = value; }
@@ -63,10 +69,16 @@ class JobPosting extends Intangible {
   set occupationalCategory(value){ this.computed.occupationalCategory = value; }
 
   get qualifications(){ return this.computed.qualifications; }
-  set qualifications(value){ this.computed.qualifications = value; }
+  set qualifications(value){
+    if(Intangible.isArray(value)){ this.computed.qualifications = value; }
+    else if(Intangible.isString(value)) { this.computed.qualifications = [value]; }
+  }
 
   get responsibilities(){ return this.computed.responsibilities; }
-  set responsibilities(value){ this.computed.responsibilities = value; }
+  set responsibilities(value){
+    if(Intangible.isArray(value)){ this.computed.responsibilities = value; }
+    else if(Intangible.isString(value)) { this.computed.responsibilities = [value]; }
+  }
 
   get salaryCurrency(){ return this.computed.salaryCurrency; }
   set salaryCurrency(value){ this.computed.salaryCurrency = value; }
