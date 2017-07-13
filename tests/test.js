@@ -13,23 +13,31 @@ describe('JobPosting.isNumber', function() {
 describe('jobPosting.educationRequirements', function() {
   it('should be set as an array, even if value passed is not', function() {
     let model = {};
-    model.educationRequirements = 'Bachelor Degree';
     let jobPosting = new JobPosting(model)
-    assert.deepEqual(jobPosting.educationRequirements, ['Bachelor Degree']);
+    assert.deepEqual(jobPosting.educationRequirements, []);
+
     model.educationRequirements = ['Bachelor Degree'];
+    jobPosting = new JobPosting(model)
+    assert.deepEqual(jobPosting.educationRequirements, ['Bachelor Degree']);
+
+    model.educationRequirements = 'Bachelor Degree';
     jobPosting = new JobPosting(model)
     assert.deepEqual(jobPosting.educationRequirements, ['Bachelor Degree']);
   });
 });
 
-
 describe('jobPosting.experienceRequirements', function() {
   it('should be set as an array, even if value passed is not', function() {
     let model = {};
-    model.experienceRequirements = 'Experience';
+    model.experienceRequirements = null;
     let jobPosting = new JobPosting(model)
-    assert.deepEqual(jobPosting.experienceRequirements, ['Experience']);
+    assert.deepEqual(jobPosting.experienceRequirements, []);
+
     model.experienceRequirements = ['Experience'];
+    jobPosting = new JobPosting(model)
+    assert.deepEqual(jobPosting.experienceRequirements, ['Experience']);
+
+    model.experienceRequirements = 'Experience';
     jobPosting = new JobPosting(model)
     assert.deepEqual(jobPosting.experienceRequirements, ['Experience']);
   });
@@ -38,9 +46,13 @@ describe('jobPosting.experienceRequirements', function() {
 describe('jobPosting.qualifications', function() {
   it('should be set as an array, even if value passed is not', function() {
     let model = {};
-    model.qualifications = 'qualification';
     let jobPosting = new JobPosting(model)
+    assert.deepEqual(jobPosting.qualifications, []);
+
+    model.qualifications = 'qualification';
+    jobPosting = new JobPosting(model)
     assert.deepEqual(jobPosting.qualifications, ['qualification']);
+
     model.qualifications = ['qualification'];
     jobPosting = new JobPosting(model)
     assert.deepEqual(jobPosting.qualifications, ['qualification']);
@@ -56,5 +68,8 @@ describe('jobPosting.responsibilities', function() {
     model.responsibilities = ['responsibilities'];
     jobPosting = new JobPosting(model)
     assert.deepEqual(jobPosting.responsibilities, ['responsibilities']);
+    model.responsibilities = null;
+    jobPosting = new JobPosting(model)
+    assert.deepEqual(jobPosting.responsibilities, []);
   });
 });

@@ -37,6 +37,7 @@ class JobPosting extends Intangible {
 
   get educationRequirements(){ return this.computed.educationRequirements; }
   set educationRequirements(value){
+    if(!this.computed.educationRequirements){ this.computed.educationRequirements = []; }
     if(Intangible.isArray(value)){ this.computed.educationRequirements = value; }
     else if(Intangible.isString(value)){ this.computed.educationRequirements = [value]; }
   }
@@ -48,6 +49,7 @@ class JobPosting extends Intangible {
   set experienceRequirements(value){
     if(Intangible.isArray(value)){ this.computed.experienceRequirements = value; }
     else if(Intangible.isString(value)) { this.computed.experienceRequirements = [value]; }
+    else if(!this.computed.experienceRequirements){ this.computed.experienceRequirements = []; }
   }
 
   get hiringOrganization(){ return this.computed.hiringOrganization; }
@@ -70,12 +72,14 @@ class JobPosting extends Intangible {
 
   get qualifications(){ return this.computed.qualifications; }
   set qualifications(value){
+    if(!this.computed.qualifications){ this.computed.qualifications = []; }
     if(Intangible.isArray(value)){ this.computed.qualifications = value; }
     else if(Intangible.isString(value)) { this.computed.qualifications = [value]; }
   }
 
   get responsibilities(){ return this.computed.responsibilities; }
   set responsibilities(value){
+    if(!this.computed.responsibilities){ this.computed.responsibilities = []; }
     if(Intangible.isArray(value)){ this.computed.responsibilities = value; }
     else if(Intangible.isString(value)) { this.computed.responsibilities = [value]; }
   }
