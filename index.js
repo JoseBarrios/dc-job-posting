@@ -1,6 +1,4 @@
-//const Thing = require('@josebarrios/thing');
 const Intangible = require('@josebarrios/intangible')
-//const Multiple = require('aggregation/es6');
 
 class JobPosting extends Intangible {
 
