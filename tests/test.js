@@ -14,7 +14,11 @@ describe('jobPosting.educationRequirements', function() {
   it('should be set as an array, even if value passed is not', function() {
     let model = {};
     let jobPosting = new JobPosting(model)
-    assert.deepEqual(jobPosting.educationRequirements, []);
+    assert.deepEqual(jobPosting.educationRequirements, undefined);
+
+		model.educationRequirements = null;
+    jobPosting = new JobPosting(model)
+    assert.deepEqual(jobPosting.educationRequirements, undefined);
 
     model.educationRequirements = ['Bachelor Degree'];
     jobPosting = new JobPosting(model)
@@ -29,9 +33,12 @@ describe('jobPosting.educationRequirements', function() {
 describe('jobPosting.experienceRequirements', function() {
   it('should be set as an array, even if value passed is not', function() {
     let model = {};
+		let jobPosting = new JobPosting(model)
+    assert.deepEqual(jobPosting.experienceRequirements, undefined);
+
     model.experienceRequirements = null;
-    let jobPosting = new JobPosting(model)
-    assert.deepEqual(jobPosting.experienceRequirements, []);
+    jobPosting = new JobPosting(model)
+    assert.deepEqual(jobPosting.experienceRequirements, undefined);
 
     model.experienceRequirements = ['Experience'];
     jobPosting = new JobPosting(model)
@@ -47,7 +54,11 @@ describe('jobPosting.qualifications', function() {
   it('should be set as an array, even if value passed is not', function() {
     let model = {};
     let jobPosting = new JobPosting(model)
-    assert.deepEqual(jobPosting.qualifications, []);
+    assert.deepEqual(jobPosting.qualifications, null);
+
+    model.qualifications = null;
+    jobPosting = new JobPosting(model)
+    assert.deepEqual(jobPosting.qualifications, null);
 
     model.qualifications = 'qualification';
     jobPosting = new JobPosting(model)
@@ -62,14 +73,41 @@ describe('jobPosting.qualifications', function() {
 describe('jobPosting.responsibilities', function() {
   it('should be set as an array, even if value passed is not', function() {
     let model = {};
+    let jobPosting = new JobPosting(model);
+    assert.deepEqual(jobPosting.responsibilities, undefined);
+
+		model.responsibilities = null;
+    jobPosting = new JobPosting(model);
+    assert.deepEqual(jobPosting.responsibilities, undefined);
+
     model.responsibilities = 'responsibilities';
-    let jobPosting = new JobPosting(model)
+    jobPosting = new JobPosting(model)
     assert.deepEqual(jobPosting.responsibilities, ['responsibilities']);
+
     model.responsibilities = ['responsibilities'];
     jobPosting = new JobPosting(model)
     assert.deepEqual(jobPosting.responsibilities, ['responsibilities']);
-    model.responsibilities = null;
-    jobPosting = new JobPosting(model)
-    assert.deepEqual(jobPosting.responsibilities, []);
   });
 });
+
+describe('jobPosting.skills', function() {
+  it('should be set as an array, even if value passed is not', function() {
+    let model = {};
+    let jobPosting = new JobPosting(model)
+    assert.deepEqual(jobPosting.skills, undefined);
+
+    model.skills = 'skill';
+    jobPosting = new JobPosting(model)
+    assert.deepEqual(jobPosting.skills, ['skill']);
+
+    model.skills = ['skill'];
+    jobPosting = new JobPosting(model)
+    assert.deepEqual(jobPosting.skills, ['skill']);
+
+    model.skills = ['skills', 'skills'];
+    jobPosting = new JobPosting(model)
+    assert.deepEqual(jobPosting.skills, ['skills', 'skills']);
+  });
+});
+
+
