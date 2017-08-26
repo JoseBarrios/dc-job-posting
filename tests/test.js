@@ -26,7 +26,7 @@ describe('jobPosting.educationRequirements', function() {
 
     model.educationRequirements = 'Bachelor Degree';
     jobPosting = new JobPosting(model)
-    assert.deepEqual(jobPosting.educationRequirements, ['Bachelor Degree']);
+    assert.deepEqual(jobPosting.educationRequirements, 'Bachelor Degree');
   });
 });
 
@@ -46,7 +46,7 @@ describe('jobPosting.experienceRequirements', function() {
 
     model.experienceRequirements = 'Experience';
     jobPosting = new JobPosting(model)
-    assert.deepEqual(jobPosting.experienceRequirements, ['Experience']);
+    assert.deepEqual(jobPosting.experienceRequirements, 'Experience');
   });
 });
 
@@ -62,11 +62,7 @@ describe('jobPosting.qualifications', function() {
 
     model.qualifications = 'qualification';
     jobPosting = new JobPosting(model)
-    assert.deepEqual(jobPosting.qualifications, ['qualification']);
-
-    model.qualifications = ['qualification'];
-    jobPosting = new JobPosting(model)
-    assert.deepEqual(jobPosting.qualifications, ['qualification']);
+    assert.deepEqual(jobPosting.qualifications, 'qualification');
   });
 });
 
@@ -82,7 +78,7 @@ describe('jobPosting.responsibilities', function() {
 
     model.responsibilities = 'responsibilities';
     jobPosting = new JobPosting(model)
-    assert.deepEqual(jobPosting.responsibilities, ['responsibilities']);
+    assert.deepEqual(jobPosting.responsibilities, 'responsibilities');
 
     model.responsibilities = ['responsibilities'];
     jobPosting = new JobPosting(model)
@@ -98,7 +94,7 @@ describe('jobPosting.skills', function() {
 
     model.skills = 'skill';
     jobPosting = new JobPosting(model)
-    assert.deepEqual(jobPosting.skills, ['skill']);
+    assert.deepEqual(jobPosting.skills, 'skill');
 
     model.skills = ['skill'];
     jobPosting = new JobPosting(model)
