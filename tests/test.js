@@ -20,13 +20,17 @@ describe('jobPosting.educationRequirements', function() {
     jobPosting = new JobPosting(model)
     assert.deepEqual(jobPosting.educationRequirements, undefined);
 
-    model.educationRequirements = ['Bachelor Degree'];
-    jobPosting = new JobPosting(model)
-    assert.deepEqual(jobPosting.educationRequirements, ['Bachelor Degree']);
-
     model.educationRequirements = 'Bachelor Degree';
     jobPosting = new JobPosting(model)
     assert.deepEqual(jobPosting.educationRequirements, 'Bachelor Degree');
+
+    model.educationRequirements = ['Bachelor Degree'];
+    jobPosting = new JobPosting(model)
+    assert.deepEqual(jobPosting.educationRequirements, 'Bachelor Degree');
+
+    model.educationRequirements = ['Bachelor Degree', 'one'];
+    jobPosting = new JobPosting(model)
+    assert.deepEqual(jobPosting.educationRequirements, 'Bachelor Degree\none');
   });
 });
 
@@ -40,13 +44,17 @@ describe('jobPosting.experienceRequirements', function() {
     jobPosting = new JobPosting(model)
     assert.deepEqual(jobPosting.experienceRequirements, undefined);
 
-    model.experienceRequirements = ['Experience'];
-    jobPosting = new JobPosting(model)
-    assert.deepEqual(jobPosting.experienceRequirements, ['Experience']);
-
     model.experienceRequirements = 'Experience';
     jobPosting = new JobPosting(model)
     assert.deepEqual(jobPosting.experienceRequirements, 'Experience');
+
+    model.experienceRequirements = ['Experience'];
+    jobPosting = new JobPosting(model)
+    assert.deepEqual(jobPosting.experienceRequirements, 'Experience');
+
+    model.experienceRequirements = ['Experience', 'one'];
+    jobPosting = new JobPosting(model)
+    assert.deepEqual(jobPosting.experienceRequirements, 'Experience\none');
   });
 });
 
@@ -63,6 +71,14 @@ describe('jobPosting.qualifications', function() {
     model.qualifications = 'qualification';
     jobPosting = new JobPosting(model)
     assert.deepEqual(jobPosting.qualifications, 'qualification');
+
+    model.qualifications = ['qualification'];
+    jobPosting = new JobPosting(model)
+    assert.deepEqual(jobPosting.qualifications, 'qualification');
+
+    model.qualifications = ['qualification', 'one'];
+    jobPosting = new JobPosting(model)
+    assert.deepEqual(jobPosting.qualifications, 'qualification\none');
   });
 });
 
@@ -82,7 +98,12 @@ describe('jobPosting.responsibilities', function() {
 
     model.responsibilities = ['responsibilities'];
     jobPosting = new JobPosting(model)
-    assert.deepEqual(jobPosting.responsibilities, ['responsibilities']);
+    assert.deepEqual(jobPosting.responsibilities, 'responsibilities');
+
+    model.responsibilities = ['responsibilities', 'one'];
+    jobPosting = new JobPosting(model)
+		assert.deepEqual(jobPosting.responsibilities, 'responsibilities\none');
+
   });
 });
 
@@ -98,11 +119,11 @@ describe('jobPosting.skills', function() {
 
     model.skills = ['skill'];
     jobPosting = new JobPosting(model)
-    assert.deepEqual(jobPosting.skills, ['skill']);
+    assert.deepEqual(jobPosting.skills, 'skill');
 
     model.skills = ['skills', 'skills'];
     jobPosting = new JobPosting(model)
-    assert.deepEqual(jobPosting.skills, ['skills', 'skills']);
+    assert.deepEqual(jobPosting.skills, 'skills\nskills');
   });
 });
 
