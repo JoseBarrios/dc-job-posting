@@ -24,8 +24,6 @@ class JobPosting extends Intangible {
     this.title = model.title;
     this.validThrough = model.validThrough;
     this.workHours = model.workHours;
-		//NON-STANDARD
-    this.applyToEmail = model.applyToEmail;
   }
 
   get baseSalary(){ return this.computed.baseSalary; }
@@ -105,11 +103,6 @@ class JobPosting extends Intangible {
 
   get workHours(){ return this.computed.workHours; }
   set workHours(value){ this.computed.workHours = value; }
-
-
-	//NON-STANDARD
-  get applyToEmail(){ return this.computed.applyToEmail; }
-  set applyToEmail(value){ this.computed.applyToEmail = value; }
 
 }
 
