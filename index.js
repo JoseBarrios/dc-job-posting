@@ -1,4 +1,4 @@
-const Intangible = require('@josebarrios/intangible')
+const Intangible = require('@josebarrios/dc-intangible')
 
 class JobPosting extends Intangible {
 
