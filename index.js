@@ -1,109 +1,112 @@
-const Intangible = require('@josebarrios/dc-intangible')
+const IntangibleDataController = require('dc-intangible')
+const TYPE = 'JobPostingDataController';
 
-class JobPosting extends Intangible {
+class JobPostingDataController extends IntangibleDataController {
 
-  constructor(model){
-    model = model || {};
-    super(model)
-    this.baseSalary = model.baseSalary;
-    this.datePosted = model.datePosted;
-    this.educationRequirements = model.educationRequirements;
-    this.employmentType = model.employmentType;
-    this.experienceRequirements = model.experienceRequirements;
-    this.hiringOrganization = model.hiringOrganization;
-    this.incentiveCompensation = model.incentiveCompensation;
-    this.industry = model.industry;
-    this.jobBenefits = model.jobBenefits;
-    this.jobLocation = model.jobLocation;
-    this.occupationalCategory = model.occupationalCategory;
-    this.qualifications = model.qualifications;
-    this.responsibilities = model.responsibilities;
-    this.salaryCurrency = model.salaryCurrency;
-    this.skills = model.skills;
-    this.specialCommitments = model.specialCommitments;
-    this.title = model.title;
-    this.validThrough = model.validThrough;
-    this.workHours = model.workHours;
-  }
+	static get type(){ return TYPE; }
 
-  get baseSalary(){ return this.computed.baseSalary; }
-  set baseSalary(value){ this.computed.baseSalary = value; }
+	constructor(model){
+		model = model || {};
+		super(model)
 
-  get datePosted(){ return this.computed.datePosted; }
-  set datePosted(value){ this.computed.datePosted = value; }
+		this.baseSalary = model.baseSalary;
+		this.datePosted = model.datePosted;
+		this.educationRequirements = model.educationRequirements;
+		this.employmentType = model.employmentType;
+		this.experienceRequirements = model.experienceRequirements;
+		this.hiringOrganization = model.hiringOrganization;
+		this.incentiveCompensation = model.incentiveCompensation;
+		this.industry = model.industry;
+		this.jobBenefits = model.jobBenefits;
+		this.jobLocation = model.jobLocation;
+		this.occupationalCategory = model.occupationalCategory;
+		this.qualifications = model.qualifications;
+		this.responsibilities = model.responsibilities;
+		this.salaryCurrency = model.salaryCurrency;
+		this.skills = model.skills;
+		this.specialCommitments = model.specialCommitments;
+		this.title = model.title;
+		this.validThrough = model.validThrough;
+		this.workHours = model.workHours;
+	}
 
-  get educationRequirements(){ return this.computed.educationRequirements; }
+	get baseSalary(){ return this.model.baseSalary; }
+	set baseSalary(value){ this.model.baseSalary = value; }
+
+	get datePosted(){ return this.model.datePosted; }
+	set datePosted(value){ this.model.datePosted = value; }
+
+	get educationRequirements(){ return this.model.educationRequirements; }
 	set educationRequirements(value){
-    if(Intangible.isArray(value)){ this.computed.educationRequirements = value.join('\n'); }
-    else if(Intangible.isString(value)) { this.computed.educationRequirements = value; }
+		if(IntangibleDataController.isArray(value)){ this.model.educationRequirements = value.join('\n'); }
+		else if(IntangibleDataController.isString(value)) { this.model.educationRequirements = value; }
 	}
 
-  get employmentType(){ return this.computed.employmentType; }
-  set employmentType(value){ this.computed.employmentType = value; }
+	get employmentType(){ return this.model.employmentType; }
+	set employmentType(value){ this.model.employmentType = value; }
 
-  get experienceRequirements(){ return this.computed.experienceRequirements; }
+	get experienceRequirements(){ return this.model.experienceRequirements; }
 	set experienceRequirements(value){
-    if(Intangible.isArray(value)){ this.computed.experienceRequirements = value.join('\n'); }
-    else if(Intangible.isString(value)) { this.computed.experienceRequirements = value; }
+		if(IntangibleDataController.isArray(value)){ this.model.experienceRequirements = value.join('\n'); }
+		else if(IntangibleDataController.isString(value)) { this.model.experienceRequirements = value; }
 	}
 
-  get hiringOrganization(){ return this.computed.hiringOrganization; }
-  set hiringOrganization(value){ this.computed.hiringOrganization = value; }
+	get hiringOrganization(){ return this.model.hiringOrganization; }
+	set hiringOrganization(value){ this.model.hiringOrganization = value; }
 
-  get incentiveCompensation(){ return this.computed.incentiveCompensation; }
+	get incentiveCompensation(){ return this.model.incentiveCompensation; }
 	set incentiveCompensation(value){
-    if(Intangible.isArray(value)){ this.computed.incentiveCompensation = value.join('\n'); }
-    else if(Intangible.isString(value)) { this.computed.incentiveCompensation = value; }
+		if(IntangibleDataController.isArray(value)){ this.model.incentiveCompensation = value.join('\n'); }
+		else if(IntangibleDataController.isString(value)) { this.model.incentiveCompensation = value; }
 	}
 
-  get industry(){ return this.computed.industry; }
-  set industry(value){ this.computed.industry = value; }
+	get industry(){ return this.model.industry; }
+	set industry(value){ this.model.industry = value; }
 
-  get jobBenefits(){ return this.computed.jobBenefits; }
+	get jobBenefits(){ return this.model.jobBenefits; }
 	set jobBenefits(value){
-    if(Intangible.isArray(value)){ this.computed.jobBenefits = value.join('\n'); }
-    else if(Intangible.isString(value)) { this.computed.jobBenefits = value; }
+		if(IntangibleDataController.isArray(value)){ this.model.jobBenefits = value.join('\n'); }
+		else if(IntangibleDataController.isString(value)) { this.model.jobBenefits = value; }
 	}
 
-  get jobLocation(){ return this.computed.jobLocation; }
-  set jobLocation(value){ this.computed.jobLocation = value; }
+	get jobLocation(){ return this.model.jobLocation; }
+	set jobLocation(value){ this.model.jobLocation = value; }
 
-  get occupationalCategory(){ return this.computed.occupationalCategory; }
-  set occupationalCategory(value){ this.computed.occupationalCategory = value; }
+	get occupationalCategory(){ return this.model.occupationalCategory; }
+	set occupationalCategory(value){ this.model.occupationalCategory = value; }
 
-  get qualifications(){ return this.computed.qualifications; }
+	get qualifications(){ return this.model.qualifications; }
 	set qualifications(value){
-    if(Intangible.isArray(value)){ this.computed.qualifications = value.join('\n'); }
-    else if(Intangible.isString(value)) { this.computed.qualifications = value; }
+		if(IntangibleDataController.isArray(value)){ this.model.qualifications = value.join('\n'); }
+		else if(IntangibleDataController.isString(value)) { this.model.qualifications = value; }
 	}
 
-  get responsibilities(){ return this.computed.responsibilities; }
+	get responsibilities(){ return this.model.responsibilities; }
 	set responsibilities(value){
-    if(Intangible.isArray(value)){ this.computed.responsibilities = value.join('\n'); }
-    else if(Intangible.isString(value)) { this.computed.responsibilities = value; }
+		if(IntangibleDataController.isArray(value)){ this.model.responsibilities = value.join('\n'); }
+		else if(IntangibleDataController.isString(value)) { this.model.responsibilities = value; }
 	}
 
-  get salaryCurrency(){ return this.computed.salaryCurrency; }
-  set salaryCurrency(value){ this.computed.salaryCurrency = value; }
+	get salaryCurrency(){ return this.model.salaryCurrency; }
+	set salaryCurrency(value){ this.model.salaryCurrency = value; }
 
-  get skills(){ return this.computed.skills; }
+	get skills(){ return this.model.skills; }
 	set skills(value){
-    if(Intangible.isArray(value)){ this.computed.skills = value.join('\n'); }
-    else if(Intangible.isString(value)) { this.computed.skills = value; }
+		if(IntangibleDataController.isArray(value)){ this.model.skills = value.join('\n'); }
+		else if(IntangibleDataController.isString(value)) { this.model.skills = value; }
 	}
 
-  get specialCommitments(){ return this.computed.specialCommitments; }
-  set specialCommitments(value){ this.computed.specialCommitments = value; }
+	get specialCommitments(){ return this.model.specialCommitments; }
+	set specialCommitments(value){ this.model.specialCommitments = value; }
 
-  get title(){ return this.computed.title; }
-  set title(value){ this.computed.title = value; }
+	get title(){ return this.model.title; }
+	set title(value){ this.model.title = value; }
 
-  get validThrough(){ return this.computed.validThrough; }
-  set validThrough(value){ this.computed.validThrough = value; }
+	get validThrough(){ return this.model.validThrough; }
+	set validThrough(value){ this.model.validThrough = value; }
 
-  get workHours(){ return this.computed.workHours; }
-  set workHours(value){ this.computed.workHours = value; }
-
+	get workHours(){ return this.model.workHours; }
+	set workHours(value){ this.model.workHours = value; }
 }
 
-module.exports = JobPosting;
+module.exports = JobPostingDataController;
